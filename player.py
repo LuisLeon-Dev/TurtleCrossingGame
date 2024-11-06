@@ -12,10 +12,17 @@ class Player(Turtle):
         self.color('blue')
         self.setheading(90)
         self.penup()
+        self.go_to_start()
+
+    def go_to_start(self):
         self.goto(STARTING_POSITION)
+
+    def is_at_finish_line(self):
+        if self.ycor() > FINISH_LINE_Y:
+            return True
+        else:
+            return False
 
     def go_up(self):
         y_cor = self.ycor() + MOVE_DISTANCE
         self.goto(self.xcor(), y_cor)
-
-
